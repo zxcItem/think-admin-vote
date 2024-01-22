@@ -1,12 +1,8 @@
 <?php
 
-use think\admin\extend\PhinxExtend;
 use think\migration\Migrator;
 
-/**
- * 投票系统初始化
- */
-class Vote20240117 extends Migrator
+class InstallVote extends Migrator
 {
     /**
      * Change Method.
