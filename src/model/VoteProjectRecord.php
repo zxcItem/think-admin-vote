@@ -6,6 +6,9 @@ namespace app\vote\model;
 use app\account\model\AccountUser;
 use think\model\relation\BelongsTo;
 
+/**
+ * 投票评论模型
+ */
 class VoteProjectRecord extends Abs
 {
 

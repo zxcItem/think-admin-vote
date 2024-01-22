@@ -6,6 +6,9 @@ namespace app\vote\model;
 use think\model\relation\BelongsTo;
 use think\model\relation\HasMany;
 
+/**
+ * 投票项目选手模型
+ */
 class VoteProjectPlayer extends Abs
 {
 

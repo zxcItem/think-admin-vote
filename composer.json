@@ -14,7 +14,8 @@
         "ext-json": "*",
         "zoujingli/ip2region": "^1.0|^2.0|@dev",
         "zoujingli/think-install": "^1.0|@dev",
-        "zoujingli/think-library": "^6.1|@dev"
+        "zoujingli/think-library": "^6.1|@dev",
+        "xiaochao/think-plugs-account": "*"
     },
     "extra": {
         "config": {

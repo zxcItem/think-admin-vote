@@ -15,7 +15,7 @@ use think\db\exception\ModelNotFoundException;
 /**
  * 投票数据报表
  * Class Portal
- * @package app\data\controller\total
+ * @package app\vote\controller\total
  */
 class Portal extends Controller
 {

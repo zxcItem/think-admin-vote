@@ -8,6 +8,9 @@ use think\db\exception\DbException;
 use think\db\exception\ModelNotFoundException;
 use think\model\relation\HasMany;
 
+/**
+ * 投票项目模型
+ */
 class VoteProject extends Abs
 {
     /**
