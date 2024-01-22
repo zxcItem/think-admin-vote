@@ -7,7 +7,7 @@ use think\admin\Model;
 /**
  * 基于抽象类模型
  * @class Abs
- * @package plugin\wemall\model
+ * @package app\vote\model
  */
 abstract class Abs extends Model
 {

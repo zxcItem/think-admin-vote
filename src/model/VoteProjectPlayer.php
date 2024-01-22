@@ -3,12 +3,17 @@
 namespace app\vote\model;
 
 
+use think\model\relation\BelongsTo;
 use think\model\relation\HasMany;
 
 class VoteProjectPlayer extends Abs
 {
 
-    public function projectName()
+    /**
+     * 关联项目
+     * @return BelongsTo
+     */
+    public function projectName(): BelongsTo
     {
         return $this->belongsTo(VoteProject::class,'code','code')->bind(['project_name'=>'title']);
     }

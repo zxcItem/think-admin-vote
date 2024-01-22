@@ -5,6 +5,7 @@ namespace app\vote\controller;
 
 use app\vote\service\ConfigService;
 use think\admin\Controller;
+use think\admin\Exception;
 
 /**
  * 投票参数配置
@@ -31,7 +32,7 @@ class Config extends Controller
      * @auth true
      * @menu true
      * @return void
-     * @throws \think\admin\Exception
+     * @throws Exception
      */
     public function index()
     {
@@ -45,7 +46,7 @@ class Config extends Controller
      * 修改参数配置
      * @auth true
      * @return void
-     * @throws \think\admin\Exception
+     * @throws Exception
      */
     public function params()
     {
@@ -62,7 +63,7 @@ class Config extends Controller
      * 修改协议内容
      * @auth true
      * @return void
-     * @throws \think\admin\Exception
+     * @throws Exception
      */
     public function content()
     {
@@ -83,7 +84,7 @@ class Config extends Controller
      * 首页轮播
      * @auth true
      * @return void
-     * @throws \think\admin\Exception
+     * @throws Exception
      */
     public function slider()
     {

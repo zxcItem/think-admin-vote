@@ -17,7 +17,7 @@ class VoteProject extends Abs
      * @throws DbException
      * @throws ModelNotFoundException
      */
-    public static function item()
+    public static function item(): array
     {
         return static::mk()->where('status',1)->order('sort desc')->field('code,title')->select()->toArray();
     }
@@ -26,7 +26,7 @@ class VoteProject extends Abs
      * 获取关联记录统计
      * @return HasMany
      */
-    public function record()
+    public function record(): HasMany
     {
         return $this->hasMany(VoteProjectRecord::class,'code','code');
     }

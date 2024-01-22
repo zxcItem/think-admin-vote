@@ -2,7 +2,6 @@
 
 namespace app\vote\controller;
 
-use app\data\service\PortalService;
 use app\vote\model\VoteProject;
 use app\vote\model\VoteProjectComment;
 use app\vote\model\VoteProjectPlayer;

@@ -3,7 +3,7 @@
 namespace app\vote\model;
 
 
-use app\data\model\DataUser;
+use app\account\model\AccountUser;
 use think\model\relation\BelongsTo;
 
 class VoteProjectRecord extends Abs
@@ -13,7 +13,7 @@ class VoteProjectRecord extends Abs
      * 关联项目
      * @return BelongsTo
      */
-    public function projectName()
+    public function projectName(): BelongsTo
     {
         return $this->belongsTo(VoteProject::class,'code','code')->bind(['project_name'=>'title']);
     }
@@ -22,16 +22,16 @@ class VoteProjectRecord extends Abs
      * 关联用户
      * @return BelongsTo
      */
-    public function userName()
+    public function userName(): BelongsTo
     {
-        return $this->belongsTo(DataUser::class,'unid','id')->bind(['nickname']);
+        return $this->belongsTo(AccountUser::class,'unid','id')->bind(['nickname']);
     }
 
     /**
      * 关联选手
      * @return BelongsTo
      */
-    public function playerName()
+    public function playerName(): BelongsTo
     {
         return $this->belongsTo(VoteProjectPlayer::class,'player_id','id')->bind(['player_name'=>'name']);
     }

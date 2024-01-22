@@ -36,15 +36,21 @@ class Service extends Plugin
         return [
             [
                 'name' => '投票管理',
+                'sort' => '100',
                 'subs' => [
-                    ['name' => '数据统计报表', 'icon' => 'layui-icon layui-icon-chart', 'node' => "vote/portal/index"],
-                    ['name' => '投票参数管理', 'icon' => 'layui-icon layui-icon-set', 'node' => "vote/config/index"],
-                    ['name' => '投票项目管理', 'icon' => 'layui-icon layui-icon-slider', 'node' => "vote/project/index"],
-                    ['name' => '投票选手管理', 'icon' => 'layui-icon layui-icon-user', 'node' => "vote/player/index"],
-                    ['name' => '投票记录管理', 'icon' => 'layui-icon layui-icon-slider', 'node' => "vote/record/index"],
-                    ['name' => '投票评论管理', 'icon' => 'layui-icon layui-icon-dialogue', 'node' => "vote/comment/index"],
+                    [
+                        'name' => '投票管理',
+                        'subs' => [
+                            ['name' => '数据统计报表', 'icon' => 'layui-icon layui-icon-chart', 'node' => "vote/portal/index"],
+                            ['name' => '投票参数管理', 'icon' => 'layui-icon layui-icon-set', 'node' => "vote/config/index"],
+                            ['name' => '投票项目管理', 'icon' => 'layui-icon layui-icon-slider', 'node' => "vote/project/index"],
+                            ['name' => '投票选手管理', 'icon' => 'layui-icon layui-icon-user', 'node' => "vote/player/index"],
+                            ['name' => '投票记录管理', 'icon' => 'layui-icon layui-icon-slider', 'node' => "vote/record/index"],
+                            ['name' => '投票评论管理', 'icon' => 'layui-icon layui-icon-dialogue', 'node' => "vote/comment/index"],
+                        ],
+                    ],
                 ],
-            ]
+            ],
         ];
     }
 }

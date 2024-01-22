@@ -19,7 +19,7 @@
     "extra": {
         "config": {
             "type": "module",
-            "name": "投票系统管理"
+            "name": "投票模块管理"
         },
         "think": {
             "services": [

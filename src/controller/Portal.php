@@ -2,7 +2,7 @@
 
 namespace app\vote\controller;
 
-use app\data\model\DataUserBind;
+use app\account\model\AccountUser;
 use app\vote\model\VoteProject;
 use app\vote\model\VoteProjectComment;
 use app\vote\model\VoteProjectPlayer;
@@ -32,7 +32,7 @@ class Portal extends Controller
     public function index(){
         // 设置页面标题
         $this->title = '数据统计概况';
-        $this->usersTotal = DataUserBind::mk()->where(['status'=>1,'deleted'=>0])->cache(true, 60)->count();
+        $this->usersTotal = AccountUser::mk()->where(['status'=>1,'deleted'=>0])->cache(true, 60)->count();
         $this->projectTotal = VoteProject::mk()->where(['status'=>1,'deleted'=>0])->cache(true, 60)->count();
         $this->recordTotal = VoteProjectRecord::mk()->where(['deleted'=>0])->cache(true, 60)->count();
         $this->playerTotal = VoteProjectPlayer::mk()->where(['is_check'=>1,'status'=>1,'deleted'=>0])->cache(true, 60)->count();
