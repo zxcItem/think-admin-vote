@@ -4,16 +4,18 @@ declare (strict_types=1);
 
 namespace app\vote\service;
 
+use think\admin\Exception;
+
 /**
- * 商城配置服务
- * @class ConfigService
+ * 投票配置服务
+ * @class Config
  * @package app\vote\service
  */
-class ConfigService
+class Config
 {
 
     /**
-     * 商城配置缓存名
+     * 投票配置缓存名
      * @var string
      */
     private static $skey = 'vote.config';
@@ -35,29 +37,28 @@ class ConfigService
         ]
     ];
 
-
     /**
-     * 类型配置获取
-     * @param string $name
-     * @return mixed
-     */
-    public static function pageTypes(string $name)
-    {
-        return array_column(self::$pageTypes,'title','name')[$name];
-    }
-
-    /**
-     * 读取商城配置参数
+     * 读取投票配置参数
      * @param string|null $name
      * @param $default
      * @return array|mixed|null
-     * @throws \think\admin\Exception
+     * @throws Exception
      */
     public static function get(?string $name = null, $default = null)
     {
         $syscfg = sysvar(self::$skey) ?: sysvar(self::$skey, sysdata(self::$skey));
-        if (empty($syscfg['domain'])) $syscfg['domain'] = sysconf('base.site_host') . '/h5';
         return is_null($name) ? $syscfg : ($syscfg[$name] ?? $default);
+    }
+
+    /**
+     * 保存投票配置参数
+     * @param array $data
+     * @return mixed
+     * @throws Exception
+     */
+    public static function set(array $data)
+    {
+        return sysdata(self::$skey, $data);
     }
 
     /**
@@ -65,7 +66,7 @@ class ConfigService
      * @param string $code 页面编码
      * @param array $data 页面内容
      * @return mixed
-     * @throws \think\admin\Exception
+     * @throws Exception
      */
     public static function setPage(string $code, array $data)
     {
@@ -76,7 +77,7 @@ class ConfigService
      * 获取页面内容
      * @param string $code
      * @return array
-     * @throws \think\admin\Exception
+     * @throws Exception
      */
     public static function getPage(string $code): array
     {

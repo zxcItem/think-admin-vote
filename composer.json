@@ -29,7 +29,7 @@
         },
         "plugin": {
             "copy": {
-                "src": "!app/vote",
+                "vote": "!app/vote",
                 "stc/database": "database/migrations"
             },
             "clear": true

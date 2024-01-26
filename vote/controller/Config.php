@@ -3,7 +3,7 @@
 
 namespace app\vote\controller;
 
-use app\vote\service\ConfigService;
+use app\vote\service\Config as ConfigService;
 use think\admin\Controller;
 use think\admin\Exception;
 
@@ -68,7 +68,7 @@ class Config extends Controller
     public function content()
     {
         $input = $this->_vali(['code.require' => '编号不能为空！']);
-        $title = ConfigService::pageTypes($input['code']) ?? null;
+        $title = ConfigService::$pageTypes[$input['code']] ?? null;
         if (empty($title)) $this->error('无效的内容编号！');
         if ($this->request->isGet()) {
             $this->title = "编辑{$title}";
@@ -89,11 +89,11 @@ class Config extends Controller
     public function slider()
     {
         $input = $this->_vali(['code.require' => '编号不能为空！']);
-        $title = ConfigService::pageTypes($input['code']) ?? null;
+        $title = ConfigService::$pageTypes[$input['code']] ?? null;
         if (empty($title)) $this->error('无效的内容编号！');
         if ($this->request->isGet()) {
             $this->title = "编辑{$title}";
-            $this->data = ConfigService::getPage($input['code']);
+            $this->data = Config::getPage($input['code']);
             $this->fetch('index_slider');
         } elseif ($this->request->isPost()) {
             if (is_string(input('data'))) {
