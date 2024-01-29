@@ -38,6 +38,16 @@ class Config
     ];
 
     /**
+     * 类型配置获取
+     * @param string $name
+     * @return mixed
+     */
+    public static function pageTypes(string $name)
+    {
+        return array_column(self::$pageTypes,'title','name')[$name];
+    }
+
+    /**
      * 读取投票配置参数
      * @param string|null $name
      * @param $default
