@@ -54,11 +54,14 @@ class Portal extends Controller
         $this->todayComment = VoteProjectComment::mk()->where(['deleted'=>0])->cache(true, 60)->count();
         $this->days = $this->app->cache->get('days', []);
         if (empty($this->days)) {
+            $field = ['count(1)' => 'count', 'left(create_time,10)' => 'mday'];
+            $model = VoteProjectRecord::mk()->field($field);
+            $records = $model->whereTime('create_time', '-30 days')->where(['deleted' => 0])->group('mday')->select()->column(null, 'mday');
             for ($i = 30; $i >= 0; $i--) {
                 $date = date('Y-m-d', strtotime("-{$i}days"));
                 $this->days[] = [
                     '当天日期' => date('m-d', strtotime("-{$i}days")),
-                    '投票统计' => VoteProjectRecord::mk()->where(['deleted'=>0])->whereLike('create_time', "{$date}%")->count(),
+                    '投票统计' => ($records[$date] ?? [])['count'] ?? 0
                 ];
             }
             $this->app->cache->set('days', $this->days, 60);
