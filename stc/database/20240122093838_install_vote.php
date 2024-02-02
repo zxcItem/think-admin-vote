@@ -44,7 +44,6 @@ class InstallVote extends Migrator
         PhinxExtend::write2menu([
             [
                 'name' => '投票管理',
-                'sort' => '100',
                 'subs' => [
                     [
                         'name' => '投票管理',

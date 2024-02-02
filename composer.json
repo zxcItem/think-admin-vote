@@ -1,8 +1,8 @@
 {
     "type": "think-admin-plugin",
-    "name": "xiaochao/think-plugs-vote",
+    "name": "xiaochao/think-admin-vote",
     "license": "MIT",
-    "description": "Vote Plugin for ThinkAdmin",
+    "description": "ThinkAdminVote for ThinkAdmin",
     "authors": [
         {
             "name": "叶落无痕",
@@ -14,8 +14,7 @@
         "ext-json": "*",
         "zoujingli/ip2region": "^1.0|^2.0|@dev",
         "zoujingli/think-install": "^1.0|@dev",
-        "zoujingli/think-library": "^6.1|@dev",
-        "xiaochao/think-plugs-account": "*"
+        "zoujingli/think-library": "^6.1|@dev"
     },
     "extra": {
         "config": {

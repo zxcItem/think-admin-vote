@@ -23,11 +23,11 @@ class Service extends Plugin
      * 定义安装包名
      * @var string
      */
-    protected $package = 'xiaochao/think-plugs-vote';
+    protected $package = 'xiaochao/think-admin-vote';
 
 
     /**
-     * 增加微信配置
+     * 菜单配置
      * @return array[]
      */
     public static function menu(): array
@@ -36,7 +36,6 @@ class Service extends Plugin
         return [
             [
                 'name' => '投票管理',
-                'sort' => '100',
                 'subs' => [
                     [
                         'name' => '投票管理',
